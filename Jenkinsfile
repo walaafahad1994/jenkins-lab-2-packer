@@ -18,10 +18,10 @@ pipeline {
         sh 'packer build packer.json'
       }
     }
-    stage("deploy") {
-      steps {
-          build-job: 'bryan-jenkins-lab-2-packer'
-      }
+  }
+  post {
+    success {
+        build quietPeriod: 0, wait: false, job: 'bryan-jenkins-lab-2-tf'  
     }
   }
 }
