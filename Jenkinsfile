@@ -14,7 +14,9 @@ pipeline {
   }
   stages {
     stage("build") {
-      packer build packer.json
+      steps {
+        sh 'packer build packer.json'
+      }
     }
   }
 }
