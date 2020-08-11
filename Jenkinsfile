@@ -18,5 +18,10 @@ pipeline {
         sh 'packer build packer.json'
       }
     }
+    stage("deploy") {
+      steps {
+          build-job: 'bryan-jenkins-lab-2-packer'
+      }
+    }
   }
 }
